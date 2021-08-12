@@ -1,0 +1,42 @@
+/* #region button-nostyle */
+/* button {
+    background: transparent;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+}
+
+button:hover {
+    background: transparent;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+}
+
+button:active {
+    outline: none;
+    border: none;
+}
+
+button:focus {
+    outline: 0;
+} */
+/* #endregion */
+
+.Node,
+.NodeAlive {
+  margin: 0 2px;
+  height: 20px;
+  width: 20px;
+  outline: 1px solid black;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+}
+.Node:hover,
+.NodeAlive:hover {
+  transform: scale(1.05);
+}
+
+.NodeAlive {
+  background-color: rgb(0, 0, 20);
+}
