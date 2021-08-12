@@ -13,6 +13,7 @@ export default class GameVisual extends Component {
 
   componentDidMount() {
     this.getInitialGrid();
+    //random comment
   }
 
   gridUpdater = (row, col, isAlive) => {
