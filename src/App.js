@@ -1,11 +1,12 @@
 import React from "react";
-import GameVisual from "./GameVisual/GameVisual";
 import "./App.css";
+import "tachyons";
+import AskDimension from "./AskDimension/AskDimension";
 
 function App() {
   return (
     <div id="appMain">
-      <GameVisual></GameVisual>
+      <AskDimension></AskDimension>
     </div>
   );
 }

@@ -4,8 +4,8 @@ import "./GameVisual.css";
 import AlgorithmInit from "../GameAlgorithm/Algorithm";
 
 export default class GameVisual extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       nodes: [],
     };
@@ -14,11 +14,6 @@ export default class GameVisual extends Component {
   componentDidMount() {
     this.getInitialGrid();
   }
-
-  returnStateNodes = () => {
-    console.log(this.state.nodes);
-    return this.state.nodes;
-  };
 
   gridUpdater = (row, col, isAlive) => {
     this.setState((prevState) => {
@@ -29,30 +24,42 @@ export default class GameVisual extends Component {
   };
 
   onButtonClick = (updatedNodes) => {
-    let algoResult = AlgorithmInit(updatedNodes);
-    this.setState({ nodes: algoResult }, () => {
-      console.log(algoResult, "algo completed");
-    });
+    let algoResult = AlgorithmInit(
+      updatedNodes,
+      this.props.rowVal,
+      this.props.colVal
+    );
+    this.setState({ nodes: algoResult });
   };
 
   render() {
     return (
       <div className="centerGol">
-        <button onClick={() => this.onButtonClick(this.returnStateNodes())}>
-          click
-        </button>
-        <div>
-          {/* {console.log("indiv", this.state.nodes)} */}
-          {this.state.nodes.map((elem, idx) => {
+        <div className="buttonContainer">
+          <button
+            className="f6 grow no-underline br-pill ba ph3 pv2 mb2 dib black ma1"
+            onClick={this.getInitialGrid}
+          >
+            clear
+          </button>
+          <button
+            className="f6 grow no-underline br-pill ba ph3 pv2 mb2 dib black ma1"
+            onClick={() => this.onButtonClick(this.state.nodes)}
+          >
+            next generation
+          </button>
+        </div>
+        <div className="pa2">
+          {this.state.nodes.map((row, rowIndex) => {
             return (
-              <div key={idx}>
-                {elem.map((g, i) => {
+              <div key={rowIndex}>
+                {row.map((nodeObj, nodeObjIndex) => {
                   return (
                     <Node
-                      key={i}
-                      row={g.row}
-                      col={g.col}
-                      isAlive={g.isAlive}
+                      key={nodeObjIndex}
+                      row={nodeObj.row}
+                      col={nodeObj.col}
+                      isAlive={nodeObj.isAlive}
                       updateGrid={this.gridUpdater}
                     ></Node>
                   );
@@ -65,20 +72,22 @@ export default class GameVisual extends Component {
     );
   }
 
-  getInitialGrid() {
-    let _nodes = [];
-    for (let _row = 0; _row < 10; _row++) {
-      let currentRow = [];
-      for (let _column = 0; _column < 10; _column++) {
-        let positionInfo = {
-          row: _row,
-          col: _column,
-          isAlive: false,
-        };
-        currentRow.push(positionInfo);
+  getInitialGrid = () => {
+    this.setState({ nodes: [] }, () => {
+      let _nodes = [];
+      for (let _row = 0; _row < this.props.rowVal; _row++) {
+        let currentRow = [];
+        for (let _column = 0; _column < this.props.colVal; _column++) {
+          let positionInfo = {
+            row: _row,
+            col: _column,
+            isAlive: false,
+          };
+          currentRow.push(positionInfo);
+        }
+        _nodes.push(currentRow);
       }
-      _nodes.push(currentRow);
-    }
-    this.setState({ nodes: _nodes });
-  }
+      this.setState({ nodes: _nodes });
+    });
+  };
 }

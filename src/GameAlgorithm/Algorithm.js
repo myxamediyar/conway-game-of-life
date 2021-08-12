@@ -32,17 +32,17 @@ const neighborPos = [
   [1, -1],
 ];
 
-export default function AlgorithmInit(grid) {
-  return CalcForAlive(grid);
+export default function AlgorithmInit(grid, rowVal, colVal) {
+  return CalcForAlive(grid, rowVal, colVal);
 }
 
-function CalcForAlive(grid) {
+function CalcForAlive(grid, rowVal, colVal) {
   let newGrid = [];
   grid.forEach((row) => {
     let newRow = [];
     row.forEach((node) => {
       const newNode = { ...node };
-      const neighbors = getAllNeighbors(node, grid);
+      const neighbors = getAllNeighbors(node, grid, rowVal, colVal);
       const liveNeighbors = neighbors.filter((neighbor) => neighbor.isAlive);
       if (node.isAlive) {
         if (liveNeighbors.length < 2 || liveNeighbors.length > 3) {
@@ -60,13 +60,18 @@ function CalcForAlive(grid) {
   return newGrid;
 }
 
-function getAllNeighbors(node, grid) {
+function getAllNeighbors(node, grid, rowVal, colVal) {
   const neighbors = [];
   const nodePos = [node.row, node.col];
   neighborPos.forEach((posVector) => {
     let interRow = nodePos[0] - posVector[0];
     let interCol = nodePos[1] - posVector[1];
-    if (interRow > -1 && interCol > -1 && interRow < 10 && interCol < 10) {
+    if (
+      interRow > -1 &&
+      interCol > -1 &&
+      interRow < rowVal &&
+      interCol < colVal
+    ) {
       neighbors.push(grid[interRow][interCol]);
     }
   });
