@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/myxamediyar/conway-game-of-life/static/css/main.d5833eba.chunk.css",
+    "main.js": "/myxamediyar/conway-game-of-life/static/js/main.0a57f41e.chunk.js",
+    "main.js.map": "/myxamediyar/conway-game-of-life/static/js/main.0a57f41e.chunk.js.map",
+    "runtime-main.js": "/myxamediyar/conway-game-of-life/static/js/runtime-main.baa1f15e.js",
+    "runtime-main.js.map": "/myxamediyar/conway-game-of-life/static/js/runtime-main.baa1f15e.js.map",
+    "static/css/2.6d7c7915.chunk.css": "/myxamediyar/conway-game-of-life/static/css/2.6d7c7915.chunk.css",
+    "static/js/2.029c5904.chunk.js": "/myxamediyar/conway-game-of-life/static/js/2.029c5904.chunk.js",
+    "static/js/2.029c5904.chunk.js.map": "/myxamediyar/conway-game-of-life/static/js/2.029c5904.chunk.js.map",
+    "static/js/3.63e734bd.chunk.js": "/myxamediyar/conway-game-of-life/static/js/3.63e734bd.chunk.js",
+    "static/js/3.63e734bd.chunk.js.map": "/myxamediyar/conway-game-of-life/static/js/3.63e734bd.chunk.js.map",
+    "index.html": "/myxamediyar/conway-game-of-life/index.html",
+    "static/css/2.6d7c7915.chunk.css.map": "/myxamediyar/conway-game-of-life/static/css/2.6d7c7915.chunk.css.map",
+    "static/css/main.d5833eba.chunk.css.map": "/myxamediyar/conway-game-of-life/static/css/main.d5833eba.chunk.css.map",
+    "static/js/2.029c5904.chunk.js.LICENSE.txt": "/myxamediyar/conway-game-of-life/static/js/2.029c5904.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.baa1f15e.js",
+    "static/css/2.6d7c7915.chunk.css",
+    "static/js/2.029c5904.chunk.js",
+    "static/css/main.d5833eba.chunk.css",
+    "static/js/main.0a57f41e.chunk.js"
+  ]
+}
