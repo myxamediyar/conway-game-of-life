@@ -37,6 +37,7 @@ export default function AlgorithmInit(grid, rowVal, colVal) {
 }
 
 function CalcForAlive(grid, rowVal, colVal) {
+  let changeCount = 0;
   let newGrid = [];
   grid.forEach((row) => {
     let newRow = [];
@@ -47,17 +48,19 @@ function CalcForAlive(grid, rowVal, colVal) {
       if (node.isAlive) {
         if (liveNeighbors.length < 2 || liveNeighbors.length > 3) {
           newNode.isAlive = false;
+          changeCount += 1;
         }
       } else {
         if (liveNeighbors.length === 3) {
           newNode.isAlive = true;
+          changeCount += 1;
         }
       }
       newRow.push(newNode);
     });
     newGrid.push(newRow);
   });
-  return newGrid;
+  return [newGrid, changeCount];
 }
 
 function getAllNeighbors(node, grid, rowVal, colVal) {

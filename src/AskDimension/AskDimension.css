@@ -1,0 +1,36 @@
+input {
+  width: 8rem;
+  display: block;
+}
+
+.AskDimension {
+  height: 100%;
+  width: 100%;
+  background-color: #3aafa9;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.centerbek {
+  display: flex;
+  justify-content: center;
+  color: black;
+  background-color: #def2f1;
+  width: 100%;
+}
+
+.centerbekchild {
+  font-size: 1.5rem;
+  display: block;
+  width: 100%;
+}
+
+.rules {
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  background-color: #def2f1;
+}
