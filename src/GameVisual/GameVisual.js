@@ -61,6 +61,11 @@ export default class GameVisual extends Component {
           </button>{" "}
           <button
             className="f6 link dim1 ba ph3 pv2 mb2 dib black ma4"
+            onKeyPress={(event) => {
+              if (event.key === "w") {
+                this.onButtonClick(this.state.nodes);
+              }
+            }}
             onClick={() => this.onButtonClick(this.state.nodes)}
           >
             next generation
